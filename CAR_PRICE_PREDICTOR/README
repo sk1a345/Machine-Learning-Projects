@@ -1,0 +1,79 @@
+# 🚗 Car Price Predictor
+
+A web-based machine learning application that predicts the selling price of a used car based on user input such as company, model, year, fuel type, and kilometers driven.
+
+---
+
+## 🔍 Project Overview
+
+This project uses a **Linear Regression** model trained on cleaned car sales data. It provides a simple web interface (built with **Flask**) where users can select car details and get an estimated resale price instantly.
+
+---
+
+## 🌟 Features
+
+- Dynamic dropdowns for car companies and models.
+- AJAX-based prediction without page reload.
+- Responsive design using Bootstrap 5.
+- Preprocessed and cleaned car sales dataset.
+- Trained ML pipeline with One-Hot Encoding + Linear Regression.
+
+---
+
+## 📁 Project Structure
+
+CAR_PRICE_PREDICTOR/
+│
+├── templates/
+│ └── index.html # Main frontend interface
+│
+├── static/
+│ └── CSS/
+│ └── style.css # Custom styling
+│
+├── LinearRegressionModel.pkl # Trained ML model
+├── Cleaned_car.csv # Cleaned dataset used for training
+├── quikr_car.csv # Raw dataset
+├── app.py # Flask backend
+├── README.md # Documentation
+
+---
+
+## ⚙️ Tech Stack
+
+- **Frontend:** HTML, CSS, Bootstrap 5, JavaScript
+- **Backend:** Python, Flask
+- **Machine Learning:** Scikit-learn (Linear Regression)
+- **Data Processing:** Pandas, NumPy
+- **Visualization (EDA):** Matplotlib, Seaborn
+
+---
+
+## 🧠 Model Training Summary
+
+- Cleaned raw data:
+  - Removed rows with "Ask For Price", invalid years, missing fuel types.
+  - Converted strings like `"23,000 kms"` into integers.
+  - Extracted first 3 words from car names for better generalization.
+- Applied `OneHotEncoding` on categorical features: `name`, `company`, `fuel_type`.
+- Used `LinearRegression` model from `sklearn`.
+
+### ➕ Features Used for Training:
+
+| Feature      | Description                          |
+|--------------|--------------------------------------|
+| `name`       | Car model name (first 3 words only)  |
+| `company`    | Manufacturer                         |
+| `year`       | Year of purchase                     |
+| `kms_driven` | Kilometers the car has traveled      |
+| `fuel_type`  | Petrol/Diesel/CNG etc.               |
+
+---
+
+## 📈 Model Performance
+
+- Split: 80% training / 20% testing
+- Algorithm: Linear Regression
+- R² Score: ~0.87 (on test set)
+
+Made with ❤️ by Sneha Kohale
